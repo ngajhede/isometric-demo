@@ -1,6 +1,4 @@
 export function registerCameraControls(input, camera) {
-  camera.deltaX = 0
-  camera.deltaY = 0
   camera.setZoom(2)
 
   input.on('wheel', (pointer, gameObjects, deltaX, deltaY, deltaZ) => {

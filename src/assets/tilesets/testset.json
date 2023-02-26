@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.8" tiledversion="1.8.5" name="testset" tilewidth="32" tileheight="32" tilecount="88" columns="11" objectalignment="center">
+ <tileoffset x="100" y="0"/>
+ <grid orientation="isometric" width="32" height="16"/>
+ <image source="testset.png" width="352" height="256"/>
+</tileset>
