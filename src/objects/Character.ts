@@ -16,14 +16,14 @@ class Character extends Phaser.GameObjects.Graphics {
   }
 
   setPosition(x: number, y: number): this {
-    super.setPosition(x, y)
+    this.scene.tweens.add({
+      targets: this,
+      x: x,
+      y: y,
+      duration: 750,
+      ease: 'Sine.InOut'
+    })
     return this
-  }
-
-  getTileCoordinates(): Phaser.Math.Vector2 {
-    const tileX = Math.floor((2 * this.x - this.y) / (2 * this.radius))
-    const tileY = Math.floor((this.y + this.x) / (2 * this.radius))
-    return new Phaser.Math.Vector2(tileX, tileY)
   }
 }
 
