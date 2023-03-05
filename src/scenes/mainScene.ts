@@ -13,9 +13,17 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     this.load.tilemapTiledJSON('tilemap', '/assets/tilemaps/testmap.json')
     this.load.image('testset', '/assets/tilesets/testset.png')
+    this.load.spritesheet('ghost', 'assets/sprites/ghost.png', { frameWidth: 32, frameHeight: 32 })
   }
 
   create() {
+    this.anims.create({
+      key: 'idle',
+      frameRate: 7,
+      frames: this.anims.generateFrameNumbers('ghost', { start: 1, end: 4 }),
+      repeat: -1
+    })
+
     if (process.env.NODE_ENV === 'development') {
       const graphics = this.add.graphics()
       graphics.lineStyle(2, 0xffffff, 1)
@@ -46,7 +54,7 @@ export default class MainScene extends Phaser.Scene {
     )
 
     // Create character and add to scene at tile 10, 10 and convert to world coordinates
-    this.character = new Character(this, charPos.x, charPos.y)
+    this.character = new Character(this, '123', 'Nicolaj', 20, 5, 5, 15, 15, 3, 2, 'ghost', this.layer)
 
     // move charafter on click
     this.input.on('pointerdown', pointer => {
